@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Card Database</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="top-bar">
+        <input
+            type="text"
+            id="searchBox"
+            placeholder="Search cards..."
+            autocomplete="off"
+        >
+
+        <button id="addButton">
+            Add
+        </button>
+    </header>
+
+    <main>
+
+        <div id="cardGrid" class="card-grid">
+
+            <!-- Cards are added here by app.js -->
+
+        </div>
+
+    </main>
+
+    <template id="cardTemplate">
+
+        <div class="card" data-id="">
+            <img
+                class="card-image"
+                src=""
+                alt="Pokemon Card"
+            >
+
+            <div class="card-info">
+
+                <div class="card-name"></div>
+
+                <div class="card-set"></div>
+
+                <div class="card-number"></div>
+
+            </div>
+
+        </div>
+
+    </template>
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>
