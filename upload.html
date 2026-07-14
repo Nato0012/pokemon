@@ -1,0 +1,180 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Card</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="top-bar">
+
+        <button id="cancelButton">
+            ← Back
+        </button>
+
+        <button id="saveButton">
+            Save
+        </button>
+
+    </header>
+
+    <main class="upload-page">
+
+        <h1 id="pageTitle">
+            Add Card
+        </h1>
+
+        <!-- Card Information -->
+
+        <section class="form-section">
+
+            <label for="cardName">Card Name</label>
+            <input
+                id="cardName"
+                type="text"
+                maxlength="100"
+                required
+            >
+
+            <label for="cardSet">Set</label>
+            <input
+                id="cardSet"
+                type="text"
+                maxlength="100"
+                required
+            >
+
+            <label for="cardNumber">Card Number</label>
+            <input
+                id="cardNumber"
+                type="text"
+                maxlength="30"
+                required
+            >
+
+        </section>
+
+        <!-- Images -->
+
+        <section class="form-section">
+
+            <h2>Images</h2>
+
+            <label for="frontImage">
+                Front Image
+            </label>
+
+            <input
+                id="frontImage"
+                type="file"
+                accept="image/*"
+            >
+
+            <img
+                id="frontPreview"
+                class="preview-image"
+                src=""
+                alt="Front Preview"
+            >
+
+            <label for="backImage">
+                Back Image (Optional)
+            </label>
+
+            <input
+                id="backImage"
+                type="file"
+                accept="image/*"
+            >
+
+            <img
+                id="backPreview"
+                class="preview-image"
+                src=""
+                alt="Back Preview"
+            >
+
+        </section>
+
+        <!-- Front Centering -->
+
+        <section class="form-section">
+
+            <h2>Front Centering</h2>
+
+            <label for="frontLR">
+                Left / Right
+            </label>
+
+            <input
+                id="frontLR"
+                type="text"
+                placeholder="50/50"
+            >
+
+            <label for="frontTB">
+                Top / Bottom
+            </label>
+
+            <input
+                id="frontTB"
+                type="text"
+                placeholder="50/50"
+            >
+
+        </section>
+
+        <!-- Back Centering -->
+
+        <section class="form-section">
+
+            <h2>Back Centering</h2>
+
+            <label for="backLR">
+                Left / Right
+            </label>
+
+            <input
+                id="backLR"
+                type="text"
+                placeholder="50/50"
+            >
+
+            <label for="backTB">
+                Top / Bottom
+            </label>
+
+            <input
+                id="backTB"
+                type="text"
+                placeholder="50/50"
+            >
+
+        </section>
+
+        <!-- Notes -->
+
+        <section class="form-section">
+
+            <h2>Notes</h2>
+
+            <textarea
+                id="notes"
+                rows="8"
+                maxlength="5000"
+                placeholder="Enter notes about the card..."
+            ></textarea>
+
+        </section>
+
+    </main>
+
+    <script type="module" src="js/upload.js"></script>
+
+</body>
+</html>
+```
