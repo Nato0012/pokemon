@@ -8,9 +8,9 @@ const cardTemplate = document.getElementById("cardTemplate");
 let cards = [];
 let filteredCards = [];
 
-/* ---------------------------- */
-/* Initialize */
-/* ---------------------------- */
+/* ===========================
+   Initialize
+=========================== */
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 });
 
-/* ---------------------------- */
-/* Load Cards */
-/* ---------------------------- */
+/* ===========================
+   Load Homepage Card List
+=========================== */
 
 async function loadCards() {
 
@@ -34,8 +34,9 @@ async function loadCards() {
 
         const response = await fetch("data/cards.json");
 
-        if (!response.ok)
+        if (!response.ok) {
             throw new Error("Unable to load cards.");
+        }
 
         cards = await response.json();
 
@@ -46,13 +47,13 @@ async function loadCards() {
         displayCards(filteredCards);
 
     }
-    catch (error) {
+    catch (err) {
 
-        console.error(error);
+        console.error(err);
 
         cardGrid.innerHTML = `
-            <p style="font-size:18px;">
-                Unable to load card database.
+            <p class="message">
+                Unable to load cards.
             </p>
         `;
 
@@ -60,9 +61,9 @@ async function loadCards() {
 
 }
 
-/* ---------------------------- */
-/* Display Cards */
-/* ---------------------------- */
+/* ===========================
+   Display Cards
+=========================== */
 
 function displayCards(cardList) {
 
@@ -71,7 +72,7 @@ function displayCards(cardList) {
     if (cardList.length === 0) {
 
         cardGrid.innerHTML = `
-            <p style="font-size:18px;">
+            <p class="message">
                 No cards found.
             </p>
         `;
@@ -84,21 +85,21 @@ function displayCards(cardList) {
 
         const template = cardTemplate.content.cloneNode(true);
 
-        const cardDiv = template.querySelector(".card");
+        const cardElement = template.querySelector(".card");
 
-        cardDiv.dataset.id = card.id;
+        cardElement.dataset.id = card.id;
 
-        cardDiv.addEventListener("click", () => {
+        cardElement.addEventListener("click", () => {
 
             window.location.href = `card.html?id=${card.id}`;
 
         });
 
-        template.querySelector(".card-image").src =
-            card.frontImage || "images/placeholder.png";
+        const image = template.querySelector(".card-image");
 
-        template.querySelector(".card-image").alt =
-            card.name;
+        image.src = card.frontImage;
+
+        image.alt = card.name;
 
         template.querySelector(".card-name").textContent =
             card.name;
@@ -115,9 +116,9 @@ function displayCards(cardList) {
 
 }
 
-/* ---------------------------- */
-/* Search */
-/* ---------------------------- */
+/* ===========================
+   Search
+=========================== */
 
 function searchCards() {
 
@@ -135,33 +136,41 @@ function searchCards() {
 
     }
 
-    filteredCards = cards.filter(card => {
+    filteredCards = cards.filter(card =>
 
-        return (
+        card.name.toLowerCase().includes(text) ||
 
-            card.name.toLowerCase().includes(text) ||
+        card.set.toLowerCase().includes(text) ||
 
-            card.set.toLowerCase().includes(text) ||
+        card.number.toLowerCase().includes(text)
 
-            card.number.toLowerCase().includes(text)
-
-        );
-
-    });
+    );
 
     displayCards(filteredCards);
 
 }
 
-/* ---------------------------- */
-/* Sort */
-/* ---------------------------- */
+/* ===========================
+   Sort Alphabetically
+=========================== */
 
 function sortCards() {
 
     cards.sort((a, b) => {
 
-        return a.name.localeCompare(b.name);
+        if (a.name !== b.name) {
+
+            return a.name.localeCompare(b.name);
+
+        }
+
+        if (a.set !== b.set) {
+
+            return a.set.localeCompare(b.set);
+
+        }
+
+        return a.number.localeCompare(b.number);
 
     });
 
