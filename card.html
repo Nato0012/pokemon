@@ -1,0 +1,101 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Card</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="top-bar">
+
+        <button id="backButton">
+            ← Back
+        </button>
+
+        <button id="editButton">
+            Edit
+        </button>
+
+    </header>
+
+    <main class="card-page">
+
+        <section class="images">
+
+            <img
+                id="frontImage"
+                class="detail-image"
+                src=""
+                alt="Front of Card"
+            >
+
+            <img
+                id="backImage"
+                class="detail-image"
+                src=""
+                alt="Back of Card"
+            >
+
+        </section>
+
+        <section class="details">
+
+            <h1 id="cardName"></h1>
+
+            <div class="detail-row">
+                <span class="detail-label">Set</span>
+                <span id="cardSet"></span>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">Number</span>
+                <span id="cardNumber"></span>
+            </div>
+
+            <hr>
+
+            <h2>Front Centering</h2>
+
+            <div class="detail-row">
+                <span class="detail-label">Left / Right</span>
+                <span id="frontLR"></span>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">Top / Bottom</span>
+                <span id="frontTB"></span>
+            </div>
+
+            <hr>
+
+            <h2>Back Centering</h2>
+
+            <div class="detail-row">
+                <span class="detail-label">Left / Right</span>
+                <span id="backLR"></span>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">Top / Bottom</span>
+                <span id="backTB"></span>
+            </div>
+
+            <hr>
+
+            <h2>Notes</h2>
+
+            <div id="notes" class="notes-box"></div>
+
+        </section>
+
+    </main>
+
+    <script type="module" src="js/card.js"></script>
+
+</body>
+</html>
+```
